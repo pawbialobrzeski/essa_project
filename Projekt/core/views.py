@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from item.models import Category, Item
 from .forms import SignupForm
-
+from django.contrib.auth import get_user_model, login, logout
+from django.contrib.auth.decorators import login_required
 
 def index(request):
     items = Item.objects.filter(is_sold=False)[0:6]
@@ -28,3 +29,7 @@ def signup(request):
         'form': form
     })
 
+@login_required
+def custom_logout(request):
+    logout(request)
+    return redirect("core:index")

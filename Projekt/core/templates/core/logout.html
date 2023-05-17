@@ -1,0 +1,11 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Logout{% endblock %}
+
+{% block content %}
+    <div class="w-1/2 my-6 mx-auto p-6 bg-gray-100 rounded-xl">
+		<h1 class="mb-6 text-3xl">Logged out</h1>
+		<a href="{% url 'core:login' %}" class="px-6 py-3 text-lg font-semibold bg-gray-500 text-white rounded-xl hover:bg-gray-700">Log in</a>
+		
+	</div>
+{% endblock %}
